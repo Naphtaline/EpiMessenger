@@ -19,8 +19,6 @@ namespace EpiMessenger
     {
         private bool is_connect;
         private Socket sok;
-        public event OnConnect ConnectEvent;
-        public delegate void OnConnect();
         public event OnLogin LoginEvent;
         public delegate void OnLogin(bool result);
         public event OnMsg MsgEvent;
@@ -48,22 +46,6 @@ namespace EpiMessenger
             return (is_connect);
         }
 
-        public void Connect()
-        {
-            var t = new Thread(() =>
-            {
-                IPAddress ip = IPAddress.Parse("ns-server.epita.fr");
-                IPEndPoint ipEnd = new IPEndPoint(ip, 4242);
-                sok = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                sok.Connect(ipEnd);
-                net_read = new StreamReader(new NetworkStream(sok));
-                net_write = new StreamWriter(new NetworkStream(sok));
-                if (ConnectEvent != null)
-                    ConnectEvent();
-            });
-            t.Start();
-        }
-
         public void SetLoginInfo(String login, String pass)
         {
             this.login = login;
@@ -83,6 +65,13 @@ namespace EpiMessenger
         {
             var t = new Thread(() =>
             {
+                IPAddress ip = IPAddress.Parse("ns-server.epita.fr");
+                IPEndPoint ipEnd = new IPEndPoint(ip, 4242);
+                sok = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                sok.Connect(ipEnd);
+                net_read = new StreamReader(new NetworkStream(sok));
+                net_write = new StreamWriter(new NetworkStream(sok));
+
                 String data = net_read.ReadLine();
                 net_write.WriteLine("auth_ag ext_user none none\n");
                 net_read.ReadLine();

@@ -31,11 +31,6 @@ namespace EpiMessenger
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
-            Intent networkIntent;
-            networkIntent = new Intent(this, typeof(NetworkService));
-            BindService(networkIntent, this, Bind.AutoCreate);
-
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
             //isServiceConnected = false;
@@ -44,10 +39,13 @@ namespace EpiMessenger
             m_connectionButton = FindViewById<Button>(Resource.Id.connectButton);
             m_login = FindViewById<EditText>(Resource.Id.loginField);
             m_password = FindViewById<EditText>(Resource.Id.passwordField);
+            Intent networkIntent;
+            networkIntent = new Intent("EpiMessenger.NetworkService");
+            BindService(networkIntent, this, Bind.AutoCreate);
 
             m_connectionButton.Click += delegate {
                 m_netwokService.SetLoginInfo(m_login.Text, m_password.Text);
-                m_netwokService.Connect();
+                m_netwokService.Login();
             };
         }
 

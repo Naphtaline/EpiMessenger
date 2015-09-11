@@ -14,8 +14,7 @@ using Android.Util;
 
 namespace EpiMessenger
 {
-    [Service]
-    class NetworkService : Service
+    [Service] class NetworkService : Service
     {
         private bool is_connect;
         private Socket sok;

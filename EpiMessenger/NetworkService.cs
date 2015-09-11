@@ -70,7 +70,7 @@ namespace EpiMessenger
             this.pass = pass;
         }
 
-        private String Get_auth_string(String[] datas, String login, String pass)
+        private String GetAuthString(String[] datas, String login, String pass)
         {
             String auth = "ext_user_log ";
             auth += login + " ";
@@ -86,7 +86,7 @@ namespace EpiMessenger
                 String data = net_read.ReadLine();
                 net_write.WriteLine("auth_ag ext_user none none\n");
                 net_read.ReadLine();
-                net_write.WriteLine(Get_auth_string(data.Split(' '), login, pass));
+                net_write.WriteLine(GetAuthString(data.Split(' '), login, pass));
                 if (net_read.ReadLine().Split(' ')[1] == "002")
                 {
                     net_write.WriteLine("state actif:1174984764\n");

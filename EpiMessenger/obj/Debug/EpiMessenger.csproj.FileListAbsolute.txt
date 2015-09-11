@@ -11,3 +11,6 @@ C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\res\values\str
 C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\res\drawable\icon.png
 C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\R.cs.flag
 C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\uploadflags.txt
+C:\Users\Yolobitch\Documents\Git\EpiMessenger\EpiMessenger\obj\Debug\EpiMessenger.csprojResolveAssemblyReference.cache
+C:\Users\Yolobitch\Documents\Git\EpiMessenger\EpiMessenger\obj\Debug\EpiMessenger.dll
+C:\Users\Yolobitch\Documents\Git\EpiMessenger\EpiMessenger\obj\Debug\EpiMessenger.pdb

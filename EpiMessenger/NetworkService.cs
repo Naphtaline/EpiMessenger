@@ -64,7 +64,7 @@ namespace EpiMessenger
         {
             var t = new Thread(() =>
             {
-                IPAddress ip = IPAddress.Parse("ns-server.epita.fr");
+                IPAddress ip = Dns.GetHostEntry("ns-server.epita.fr").AddressList[0];
                 IPEndPoint ipEnd = new IPEndPoint(ip, 4242);
                 sok = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 sok.Connect(ipEnd);
@@ -100,15 +100,19 @@ namespace EpiMessenger
 
         private void Update()
         {
-            while (true)
+            var t = new Thread(() =>
             {
-                while (receive_msg && is_connect)
+                while (true)
                 {
-                    String msg = net_read.ReadLine();
-                    ParseMsg(msg);
+                    while (receive_msg && is_connect)
+                    {
+                        String msg = net_read.ReadLine();
+                        ParseMsg(msg);
+                    }
+                    Thread.Sleep(500);
                 }
-                Thread.Sleep(500);
-            }
+            });
+            t.Start();
         }
 
         private void ParseMsg(String msg)

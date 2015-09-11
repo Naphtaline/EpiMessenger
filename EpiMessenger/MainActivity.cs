@@ -44,6 +44,7 @@ namespace EpiMessenger
 
             m_connectionButton.Click += delegate {
                 m_netwokService.SetLoginInfo(m_login.Text, m_password.Text);
+                m_netwokService.LoginEvent += OnLogin;
                 m_netwokService.Login();
             };
         }
@@ -55,6 +56,11 @@ namespace EpiMessenger
                 AlertDialog.Builder l_alert = new AlertDialog.Builder(this);
                 l_alert.SetMessage("Connection failed...");
                 l_alert.SetNegativeButton("Cancel", delegate { });
+                Console.WriteLine("Failed to connect");
+            }
+            else
+            {
+                Console.WriteLine("success to connect");
             }
         }
     }

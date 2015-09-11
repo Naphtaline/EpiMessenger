@@ -71,13 +71,18 @@ namespace EpiMessenger
                 net_read = new StreamReader(new NetworkStream(sok));
                 net_write = new StreamWriter(new NetworkStream(sok));
 
+                Console.WriteLine("Connecter.............");
+
                 String data = net_read.ReadLine();
-                net_write.WriteLine("auth_ag ext_user none none\n");
+                net_write.Write("auth_ag ext_user none none\n");
+                net_write.Flush();
                 net_read.ReadLine();
-                net_write.WriteLine(GetAuthString(data.Split(' '), login, pass));
+                net_write.Write(GetAuthString(data.Split(' '), login, pass));
+                net_write.Flush();
                 if (net_read.ReadLine().Split(' ')[1] == "002")
                 {
-                    net_write.WriteLine("state actif:1174984764\n");
+                    net_write.Write("state actif:1174984764\n");
+                    net_write.Flush();
                     is_connect = true;
                     if (LoginEvent != null)
                         LoginEvent(true);
@@ -119,7 +124,10 @@ namespace EpiMessenger
         {
             String[] msgs = msg.Split(' ');
             if (msgs[0] == "ping")
-                net_write.WriteLine(msg);
+            {
+                net_write.Write(msg);
+                net_write.Flush();
+            }
             if (msgs[10] == "msg")
             {
                 Console.WriteLine(msg);

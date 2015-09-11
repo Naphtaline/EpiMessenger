@@ -1,0 +1,7 @@
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\assemblies\EpiMessenger.dll
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\assemblies\Mono.Android.dll
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\assemblies\mscorlib.dll
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\assemblies\System.Core.dll
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\assemblies\System.dll
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\assemblies\System.Xml.dll
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\assemblies\System.Xml.Linq.dll

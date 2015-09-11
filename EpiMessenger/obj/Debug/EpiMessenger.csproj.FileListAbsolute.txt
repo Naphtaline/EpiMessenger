@@ -1,0 +1,13 @@
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\EpiMessenger.csprojResolveAssemblyReference.cache
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\bin\Debug\EpiMessenger.dll
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\bin\Debug\EpiMessenger.pdb
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\bin\Debug\EpiMessenger.EpiMessenger.apk
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\bin\Debug\EpiMessenger.EpiMessenger-Signed.apk
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\EpiMessenger.dll
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\EpiMessenger.pdb
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\android\bin\EpiMessenger.EpiMessenger.apk
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\res\layout\main.xml
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\res\values\strings.xml
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\res\drawable\icon.png
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\R.cs.flag
+C:\Users\allee_r\Source\Repos\EpiMessenger\EpiMessenger\obj\Debug\uploadflags.txt

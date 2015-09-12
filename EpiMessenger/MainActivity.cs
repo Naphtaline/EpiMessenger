@@ -31,11 +31,9 @@ namespace EpiMessenger
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            // Set our view from the "main" layout resource
+
             SetContentView(Resource.Layout.Main);
-            //isServiceConnected = false;
-            // Get our button from the layout resource,
-            // and attach an event to it
+
             m_connectionButton = FindViewById<Button>(Resource.Id.connectButton);
             m_login = FindViewById<EditText>(Resource.Id.loginField);
             m_password = FindViewById<EditText>(Resource.Id.passwordField);
@@ -53,10 +51,13 @@ namespace EpiMessenger
         {
             if (p_isLogedIn == false)
             {
-                AlertDialog.Builder l_alert = new AlertDialog.Builder(this);
-                l_alert.SetMessage("Connection failed...");
-                l_alert.SetNegativeButton("Cancel", delegate { });
-                Console.WriteLine("Failed to connect");
+                RunOnUiThread(() => {
+                    AlertDialog.Builder l_alert = new AlertDialog.Builder(this);
+                    l_alert.SetMessage("Connection failed...");
+                    l_alert.SetNegativeButton("Cancel", delegate { });
+                    Console.WriteLine("Failed to connect");
+                    l_alert.Show();
+                });
             }
             else
             {

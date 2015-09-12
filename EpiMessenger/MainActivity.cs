@@ -13,10 +13,10 @@ namespace EpiMessenger
     public class MainActivity : Activity, IServiceConnection
     {
 
-        Button m_connectionButton;
         NetworkService m_netwokService;
         DataManager m_dataManager;
 
+        Button m_connectionButton;
         EditText m_login;
         EditText m_password;
         CheckBox m_checkBox;
@@ -33,7 +33,6 @@ namespace EpiMessenger
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
             SetContentView(Resource.Layout.Main);
 
             m_dataManager = DataManager.GetDataManager();

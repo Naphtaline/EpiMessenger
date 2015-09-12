@@ -15,9 +15,11 @@ namespace EpiMessenger
 
         Button m_connectionButton;
         NetworkService m_netwokService;
+        DataManager m_dataManager;
 
         EditText m_login;
         EditText m_password;
+        CheckBox m_checkBox;
 
         public void OnServiceConnected(ComponentName name, IBinder service)
         {
@@ -34,9 +36,21 @@ namespace EpiMessenger
 
             SetContentView(Resource.Layout.Main);
 
+            m_dataManager = DataManager.GetDataManager();
+
             m_connectionButton = FindViewById<Button>(Resource.Id.connectButton);
             m_login = FindViewById<EditText>(Resource.Id.loginField);
             m_password = FindViewById<EditText>(Resource.Id.passwordField);
+            m_checkBox = FindViewById<CheckBox>(Resource.Id.rememberPass);
+
+            // Store user data
+            if (m_dataManager.RetreiveData<bool>("loginCheckBox") == true)
+            {
+                m_login.Text = m_dataManager.RetreiveData<string>("login");
+                m_password.Text = m_dataManager.RetreiveData<string>("password");
+                m_checkBox.Checked = m_dataManager.RetreiveData<bool>("loginCheckBox");
+            }
+
             StartService(new Intent(this, typeof(NetworkService)));
             BindService(new Intent(this, typeof(NetworkService)), this, Bind.AutoCreate);
 
@@ -61,7 +75,19 @@ namespace EpiMessenger
             }
             else
             {
+                if (m_checkBox.Checked == true)
+                {
+                    m_dataManager.StoreData<string>("login", m_login.Text);
+                    m_dataManager.StoreData<string>("password", m_password.Text);
+                }
+                else
+                {
+                    m_dataManager.RemoveData("login");
+                    m_dataManager.RemoveData("password");
+                }
+                m_dataManager.StoreData<bool>("loginCheckBox", m_checkBox.Checked);
                 Console.WriteLine("success to connect");
+                StartActivity(typeof(ChatActivity));
             }
         }
     }

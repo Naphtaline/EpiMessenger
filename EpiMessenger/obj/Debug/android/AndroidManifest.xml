@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="EpiMessenger.EpiMessenger" android:versionCode="1" android:versionName="1.0">
   <uses-sdk android:minSdkVersion="11" />
   <application android:label="EpiMessenger" android:icon="@drawable/icon" android:name="mono.android.app.Application" android:debuggable="true">
+    <activity android:label="ChatActivity" android:name="md5b0723c9e190b0cf9cc1973585708150d.ChatActivity" />
     <activity android:icon="@drawable/icon" android:label="EpiMessenger" android:name="md5b0723c9e190b0cf9cc1973585708150d.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

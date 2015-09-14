@@ -61,6 +61,7 @@ namespace EpiMessenger
             else
             {
                 Console.WriteLine("success to connect");
+                m_netwokService.StartUpdate();
             }
         }
     }

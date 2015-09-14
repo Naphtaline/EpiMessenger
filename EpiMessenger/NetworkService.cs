@@ -128,9 +128,14 @@ namespace EpiMessenger
                 net_write.Write(msg);
                 net_write.Flush();
             }
-            if (msgs[10] == "msg")
+            else//if (msgs[10] == "msg")
             {
                 Console.WriteLine(msg);
+                var nMgr = (NotificationManager)GetSystemService(NotificationService);
+                var notification = new Notification(Resource.Drawable.Icon, "Message from netsoul");
+                var pendingIntent = PendingIntent.GetActivity(this, 0, new Intent(this, typeof(MainActivity)), 0);
+                notification.SetLatestEventInfo(this, "network Service Notification", msg, pendingIntent);
+                nMgr.Notify(0, notification);
             }
         }
     }

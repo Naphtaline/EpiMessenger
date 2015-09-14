@@ -13,11 +13,13 @@ namespace EpiMessenger
     public class MainActivity : Activity, IServiceConnection
     {
 
-        Button m_connectionButton;
         NetworkService m_netwokService;
+        DataManager m_dataManager;
 
+        Button m_connectionButton;
         EditText m_login;
         EditText m_password;
+        CheckBox m_checkBox;
 
         public void OnServiceConnected(ComponentName name, IBinder service)
         {
@@ -31,14 +33,23 @@ namespace EpiMessenger
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
-            //isServiceConnected = false;
-            // Get our button from the layout resource,
-            // and attach an event to it
+
+            m_dataManager = DataManager.GetDataManager();
+
             m_connectionButton = FindViewById<Button>(Resource.Id.connectButton);
             m_login = FindViewById<EditText>(Resource.Id.loginField);
             m_password = FindViewById<EditText>(Resource.Id.passwordField);
+            m_checkBox = FindViewById<CheckBox>(Resource.Id.rememberPass);
+
+            // Store user data
+            if (m_dataManager.RetreiveData<bool>("loginCheckBox") == true)
+            {
+                m_login.Text = m_dataManager.RetreiveData<string>("login");
+                m_password.Text = m_dataManager.RetreiveData<string>("password");
+                m_checkBox.Checked = m_dataManager.RetreiveData<bool>("loginCheckBox");
+            }
+
             StartService(new Intent(this, typeof(NetworkService)));
             BindService(new Intent(this, typeof(NetworkService)), this, Bind.AutoCreate);
 
@@ -53,15 +64,29 @@ namespace EpiMessenger
         {
             if (p_isLogedIn == false)
             {
-                AlertDialog.Builder l_alert = new AlertDialog.Builder(this);
-                l_alert.SetMessage("Connection failed...");
-                l_alert.SetNegativeButton("Cancel", delegate { });
-                Console.WriteLine("Failed to connect");
+                RunOnUiThread(() => {
+                    AlertDialog.Builder l_alert = new AlertDialog.Builder(this);
+                    l_alert.SetMessage("Connection failed...");
+                    l_alert.SetNegativeButton("Cancel", delegate { });
+                    Console.WriteLine("Failed to connect");
+                    l_alert.Show();
+                });
             }
             else
             {
+                if (m_checkBox.Checked == true)
+                {
+                    m_dataManager.StoreData<string>("login", m_login.Text);
+                    m_dataManager.StoreData<string>("password", m_password.Text);
+                }
+                else
+                {
+                    m_dataManager.RemoveData("login");
+                    m_dataManager.RemoveData("password");
+                }
+                m_dataManager.StoreData<bool>("loginCheckBox", m_checkBox.Checked);
                 Console.WriteLine("success to connect");
-                m_netwokService.StartUpdate();
+                StartActivity(typeof(ChatActivity));
             }
         }
     }

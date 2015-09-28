@@ -1,3 +1,7 @@
+EpiMessenger.AddFriendPopup, EpiMessenger;md5b0723c9e190b0cf9cc1973585708150d.AddFriendPopup
+EpiMessenger.AddFriendPopup, EpiMessenger, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5b0723c9e190b0cf9cc1973585708150d.AddFriendPopup
+EpiMessenger.AddFriendPopup;md5b0723c9e190b0cf9cc1973585708150d.AddFriendPopup
+epimessenger.AddFriendPopup;md5b0723c9e190b0cf9cc1973585708150d.AddFriendPopup
 EpiMessenger.ChatActivity, EpiMessenger;md5b0723c9e190b0cf9cc1973585708150d.ChatActivity
 EpiMessenger.ChatActivity, EpiMessenger, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5b0723c9e190b0cf9cc1973585708150d.ChatActivity
 EpiMessenger.ChatActivity;md5b0723c9e190b0cf9cc1973585708150d.ChatActivity

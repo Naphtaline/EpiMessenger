@@ -39,8 +39,9 @@ namespace EpiMessenger
         private void AddFriendButton(object sender, EventArgs e)
         {
             RunOnUiThread(() => {
-                // Ajouter un pop up dans lequel on peut écrire un login
-                // Ajouter 2 bouton : Ajouter / annuler 
+                FragmentTransaction transaction = FragmentManager.BeginTransaction();
+                AddFriendPopup dialFrag = new AddFriendPopup();
+                dialFrag.Show(transaction, "lol");
             });
         }
 
@@ -48,19 +49,10 @@ namespace EpiMessenger
         {
             string l_logins;
 
-            l_logins = m_DataManager.RetreiveData<string>("login");
+            l_logins = m_DataManager.RetreiveData<string>("loginList");
             if (l_logins != null)
                 return (l_logins.Split(';'));
             return null;
-        }
-
-        private void AddNewFriend(string p_login)
-        {
-            string l_logins;
-
-            l_logins = m_DataManager.RetreiveData<string>("login");
-            l_logins += p_login;
-            m_DataManager.StoreData<string>("login", l_logins);
         }
     }
 }

@@ -25,3 +25,4 @@ C:\Users\Yolobitch\Documents\Git\EpiMessenger\EpiMessenger\obj\Debug\res\drawabl
 C:\Users\Yolobitch\Documents\Git\EpiMessenger\EpiMessenger\obj\Debug\R.cs.flag
 C:\Users\Yolobitch\Documents\Git\EpiMessenger\EpiMessenger\obj\Debug\uploadflags.txt
 C:\Users\Yolobitch\Documents\Git\EpiMessenger\EpiMessenger\obj\Debug\EpiMessenger.csprojResolveAssemblyReference.cache
+C:\Users\Yolobitch\Documents\Git\EpiMessenger\EpiMessenger\obj\Debug\res\layout\addpopup.xml

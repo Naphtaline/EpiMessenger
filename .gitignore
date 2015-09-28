@@ -2,8 +2,8 @@
 *~
 
 # Build/test output
-obj
-bin
+obj/
+bin/
 test-results
 
 # VS sometimes writes these for no apparent reason
